@@ -1,29 +1,13 @@
-# Defines both backend (Node.js) and frontend (Vite) for Render
-
 services:
-  # Backend Node.js service
   - type: web
     name: task-backend
     env: node
     plan: free
     buildCommand: npm install
-    startCommand: npm start          # Change to your actual backend start command if different
+    startCommand: npm start
     repo: https://github.com/Dharmendra-Kumar148/fast-task-tracker-backend
     branch: main
     autoDeploy: true
-    # Uncomment and add any environment variables your backend needs
     # envVars:
     #   - key: MONGO_URL
     #     value: your-mongodb-url
-
-  # Frontend Vite static site
-  - type: static
-    name: task-frontend
-    repo: https://github.com/Dharmendra-Kumar148/fast-task-tracker-frontend
-    branch: main
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    # Pass the backend URL to the frontend as an environment variable
-    envVars:
-      - key: VITE_API_URL
-        value: https://task-backend.onrender.com  # After first deploy, update this to your actual backend Render URL
