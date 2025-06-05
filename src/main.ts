@@ -6,7 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: ['http://localhost:5173', 'https://your-netlify-app.netlify.app'], // update as needed
+    origin: ['https://fast-task-tracker-frontend-xx9j.vercel.app',], // update as needed
     credentials: true,
   });
   await app.listen(process.env.PORT || 3000);
